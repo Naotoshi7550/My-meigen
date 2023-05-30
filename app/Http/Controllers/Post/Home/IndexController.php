@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Post\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -12,6 +13,11 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('post.home.index');
+        $posts = Post::orderBy('id', 'DESC')->paginate(10);
+        foreach ($posts as $post){
+            $postLikes = $post->postLikes;
+            
+        }
+        return view('post.home.index')->with('posts', $posts);
     }
 }

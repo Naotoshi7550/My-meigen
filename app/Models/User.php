@@ -52,4 +52,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * ユーザーが「いいね」したpostを取得
+     */
+    public function postLikes(): HasMany
+    {
+        return $this->hasMany(PostLike::class);
+    }
 }

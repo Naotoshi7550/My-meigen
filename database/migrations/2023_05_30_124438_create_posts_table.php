@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             // $table->foreignId('user_id')->after('id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('num_of_likes')->default(0);
             $table->string('content');
             $table->string('media')->nullable();
             $table->timestamps();

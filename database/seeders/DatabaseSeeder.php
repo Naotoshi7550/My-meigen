@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([UsersSeeder::class]);
 
-        for ($i=0; $i<=30; $i++){
-            $this->call([PostLikesSeeder::class]);
-        }
-            // $this->call([PostsSeeder::class]);
+        // for ($i=0; $i<=30; $i++){
+        //     $this->call([PostLikesSeeder::class]);
+        // }
+        
+        // $this->call([PostsSeeder::class]);
     }
 }

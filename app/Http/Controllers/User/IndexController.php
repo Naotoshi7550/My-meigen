@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -12,6 +13,8 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('user.index')->with('id', $request->id);
+        // URLパラメータで渡されたidをもとにユーザー情報を取得する
+        $user = User::where('id', $request->id)->firstOrFail();
+        return view('user.index')->with('user', $user);
     }
 }

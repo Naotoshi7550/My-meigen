@@ -7,6 +7,7 @@
     <title>{{ $title }}</title>
 </head>
 <body>
+    <p><a href="{{ session('pageUrl') }}">ホームに戻る</a></p>
     {{ $slot }}
 </body>
 </html>

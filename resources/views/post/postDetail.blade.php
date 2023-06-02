@@ -32,7 +32,6 @@
 
         <form action="{{ route('post.like', ['id' => $post->id]) }}" method="POST">
             @csrf
-            <input type="hidden" name="page-url" value="{{ $pageUrl }}">
             <input type="text" name="add-likes" placeholder="0">
             <button type="submit">保存する</button>
         </form>
@@ -51,8 +50,5 @@
             </form>
         @endif
     </div>
-
-    <p>{{ $pageUrl }}</p>
-    <a href="{{ $pageUrl }}">戻る</a>
 
 </x-layout>

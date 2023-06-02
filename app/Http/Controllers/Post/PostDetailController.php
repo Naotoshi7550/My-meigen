@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class PostDetailController extends Controller
 {
+
     /**
      * Handle the incoming request.
      */
@@ -20,9 +21,12 @@ class PostDetailController extends Controller
         // このpostにいいねを押したユーザーの人数を取得する
         $numOfLikedUsers = $postService->getNumOfLikedUsers($post->id);
 
-        // 戻るボタンで移動する先のURL
+        // 最後に表示していたホーム画面のURL($pageUrl)をセッション変数に保存（←戻るボタンで使う）
+        if (null !== $request->input('page-url')){
             $pageUrl = $request->input('page-url');
+            $request->session()->put('pageUrl', $pageUrl);
+        }
 
-        return view('post.postDetail')->with('post', $post)->with('numOfLikedUsers', $numOfLikedUsers)->with('pageUrl', $pageUrl);
+        return view('post.postDetail')->with('post', $post)->with('numOfLikedUsers', $numOfLikedUsers);
     }
 }

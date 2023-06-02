@@ -20,12 +20,7 @@ class PostCreateController extends Controller
         $post->content = $request->postContent();
         $post->save();
 
-        // // New画面から移動してきたなら、New画面にリダイレクト
-        // // Feature画面から移動してきたなら、Feature画面にリダイレクト
-        if ($request->fullUrl() === route('post.new.index')){
-            return redirect()->route('post.new.index');
-        } elseif ($request->fullUrl() === route('post.feature.index')){
-            return redirect()->route('post.feature.index');
-        }
+        // ホーム画面の新着ページにリダイレクト
+        return redirect()->route('post.new.index');
     }
 }

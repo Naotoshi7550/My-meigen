@@ -6,11 +6,14 @@
             <li><a href="{{ route('login') }}">ログイン</a></li>
         </ul>
     @endguest
-    @if (isset($user))
-        @auth
-            <a href="{{ route('user.top', ['id' => $user->id]) }}"><p>{{ $user->name }}</p></a>
-        @endauth
-    @endif
+    @auth
+        @if (isset($user))
+            <form action="{{ route('user.top', ['id' => $user->id]) }}" method="GET">
+                <input type="hidden" name="page-url" value="{{ $posts->url($posts->currentPage()) }}">
+                <p><button>{{ $user->name }}</button>さん</p>
+            </form>
+        @endif
+    @endauth
 
     @foreach ($posts as $post)
         <p>{{ $post->content }} : 「いいね」 {{ $post->num_of_likes }} 件</p>

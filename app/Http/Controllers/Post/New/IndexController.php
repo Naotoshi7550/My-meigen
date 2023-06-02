@@ -14,6 +14,13 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request, PostService $postService)
     {
+        // 戻るボタン用のURLをセッション変数に保存
+        if (!$request->session()->exists('pageUrl')){
+            $pageUrl = route('post.new.index');
+            $request->session()->put('pageUrl', $pageUrl);
+        }
+        // dd($request->session()->all());
+
         // ログインしているなら、ログインユーザーの情報を取得する
         if (null !== $request->user()){
             $user = $request->user();

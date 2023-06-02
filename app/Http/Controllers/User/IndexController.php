@@ -15,6 +15,13 @@ class IndexController extends Controller
     {
         // URLパラメータで渡されたidをもとにユーザー情報を取得する
         $user = User::where('id', $request->id)->firstOrFail();
+
+        // 最後に表示していたホーム画面のURL($pageUrl)をセッション変数に保存（←戻るボタンで使う）
+        if (null !== $request->input('page-url')){
+            $pageUrl = $request->input('page-url');
+            $request->session()->put('pageUrl', $pageUrl);
+        }
+
         return view('user.index')->with('user', $user);
     }
 }

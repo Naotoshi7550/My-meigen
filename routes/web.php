@@ -33,6 +33,7 @@ Route::post('/post/feature', \App\Http\Controllers\Post\PostCreateController::cl
 
 Route::get('/post/{id}', \App\Http\Controllers\Post\PostDetailController::class)->name('post.detail');
 Route::post('/post/{id}/like', \App\Http\Controllers\Post\LikeCreateController::class)->name('post.like');
+Route::delete('/post/{id}/delete', \App\Http\Controllers\Post\PostDeleteController::class)->name('post.delete');
 Route::get('/post/{id}/report', \App\Http\Controllers\Post\PostDetailController::class);
 
 Route::get('/user/{id}', \App\Http\Controllers\User\IndexController::class)->name('user.top');

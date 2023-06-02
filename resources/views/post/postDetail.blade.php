@@ -37,6 +37,19 @@
             <button type="submit">保存する</button>
         </form>
         @endauth
+
+        @if (\Illuminate\Support\Facades\Auth::id() === $post->user_id)
+            <form action="{{ route('post.delete', ['id' => $post->id]) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="button">この投稿を削除する</button>
+                <p>この操作は取り消せません。本当に削除してよろしいですか？</p>
+                <div>
+                    <button type="button">キャンセル</button>
+                    <button type="submit">削除する</button>
+                </div>
+            </form>
+        @endif
     </div>
 
     <p>{{ $pageUrl }}</p>

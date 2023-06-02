@@ -12,7 +12,7 @@ class PostService
      * @param int $postId
      * @return int そのpostにいいねを押したユーザーの人数
      */
-    public function getNumOfLikedUsers($postId)
+    public function getNumOfLikedUsers(int $postId)
     {
         $postLikes = PostLike::where('post_id', $postId)->get();
         $likedUsers = $postLikes->map(function (PostLike $postLike){
@@ -28,9 +28,26 @@ class PostService
      * @param int $postId
      * @return object|null PostLikeモデルのインスタンス|null
      */
-    public function getNumOfLikesByUser($postId, $userId)
+    public function getNumOfLikesByUser(int $postId, int $userId)
     {
         return PostLike::where(['post_id' => $postId, 'user_id' => $userId])->first();
+    }
+
+
+    /**
+     * ある投稿が、そのユーザーの投稿したものであるかをチェックするメソッド
+     * @param int $postId
+     * @param int $userId
+     * @return bool
+     */
+    public function checkOwnPost(int $postId, int $userId)
+    {
+        $post = Post::where('id', $postId)->first();
+        if ($post === null){
+            return false;
+        }
+
+        return $post->user_id === $userId;
     }
 
 

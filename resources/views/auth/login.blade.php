@@ -44,4 +44,5 @@
             </x-primary-button>
         </div>
     </form>
+    <p><a href="{{ route('register') }}">ユーザー登録がお済みでない方はこちら</a></p>
 </x-guest-layout>

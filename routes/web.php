@@ -37,8 +37,8 @@ Route::delete('/post/{id}/delete', \App\Http\Controllers\Post\PostDeleteControll
 Route::get('/post/{id}/report', \App\Http\Controllers\Post\PostDetailController::class);
 
 Route::get('/user/{id}', \App\Http\Controllers\User\IndexController::class)->name('user.top');
-Route::get('/user/{id}/posts', \App\Http\Controllers\User\UserPostsController::class);
-Route::get('/user/{id}/likes', \App\Http\Controllers\User\UserLikesController::class);
+Route::get('/user/{id}/posts', \App\Http\Controllers\User\UserPostsController::class)->name('user.posts');
+Route::get('/user/{id}/likes', \App\Http\Controllers\User\UserLikesController::class)->name('user.likes');
 Route::get('/user/{id}/edit', \App\Http\Controllers\User\EditProfileController::class);
 Route::get('/user/{id}/logout', \App\Http\Controllers\User\LogoutController::class)->name('user.logout');
 

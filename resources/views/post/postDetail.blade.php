@@ -2,7 +2,7 @@
     <h2>投稿詳細画面</h2>
     <p>ID {{ $post->id }} の投稿についての詳細です</p>
     <br>
-    <p>by {{ $post->user->name }}</p>
+    <p>by <a href="{{ route('user.top', ['id' => $post->user->id]) }}">{{ $post->user->name }}</a></p>
     <p>{{ $post->created_at }}</p>
     <p>{{ $post->content }}</p>
     <p>「いいね」 {{ $post->num_of_likes }}件</p>
@@ -25,19 +25,18 @@
         @endif
 
         @auth
-        <div class="flex">
-            <button type="button">いいね</button>
-            <p>0</p>
-        </div>
+            <div class="flex">
+                <button type="button">いいね</button>
+                <p>0</p>
+            </div>
 
-        <form action="{{ route('post.like', ['id' => $post->id]) }}" method="POST">
-            @csrf
-            <input type="text" name="add-likes" placeholder="0">
-            <button type="submit">保存する</button>
-        </form>
-        @endauth
-
-        @if (\Illuminate\Support\Facades\Auth::id() === $post->user_id)
+            <form action="{{ route('post.like', ['id' => $post->id]) }}" method="POST">
+                @csrf
+                <input type="text" name="add-likes" placeholder="0">
+                <button type="submit">保存する</button>
+            </form>
+        
+            @if (\Illuminate\Support\Facades\Auth::id() === $post->user_id)
             <form action="{{ route('post.delete', ['id' => $post->id]) }}" method="POST">
                 @method('DELETE')
                 @csrf
@@ -48,7 +47,8 @@
                     <button type="submit">削除する</button>
                 </div>
             </form>
-        @endif
+            @endif
+        @endauth
     </div>
 
 </x-layout>

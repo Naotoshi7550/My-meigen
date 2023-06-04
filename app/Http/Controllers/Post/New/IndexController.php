@@ -19,7 +19,6 @@ class IndexController extends Controller
             $pageUrl = route('post.new.index');
             $request->session()->put('pageUrl', $pageUrl);
         }
-        // dd($request->session()->all());
 
         // ログインしているなら、ログインユーザーの情報を取得する
         if (null !== $request->user()){

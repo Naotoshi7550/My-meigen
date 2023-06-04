@@ -1,7 +1,9 @@
 <x-layout title="usodake | トップページ">
     <h2>トップページ</h2>
     <p>{{ $user->name }} さん</p>
-    <p>投稿一覧</p>
-    <p>いいねした投稿</p>
-    <a href="{{ route('user.logout', ['id' => $user->id]) }}"><p>ログアウト</p></a>
+    <p><a href="{{ route('user.posts', ['id' => $user->id]) }}">投稿一覧</a></p>
+    <p><a href="{{ route('user.likes', ['id' => $user->id]) }}">いいねした投稿</a></p>
+    @if (\Illuminate\Support\Facades\Auth::id() === $user->id)
+        <p><a href="{{ route('user.logout', ['id' => $user->id]) }}">ログアウト</a></p>
+    @endif
 </x-layout>

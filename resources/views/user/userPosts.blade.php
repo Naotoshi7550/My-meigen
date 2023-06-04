@@ -1,4 +1,4 @@
-<x-layout title="usodake | 投稿一覧">
+<x-layout title="名言 by俺 | 投稿一覧">
     <p>ID {{ $id }} のユーザーの投稿一覧</p>
     @foreach ($posts as $post)
         <p>{{ $post->content }} : 「いいね」 {{ $post->num_of_likes }} 件</p>

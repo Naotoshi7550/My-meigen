@@ -1,4 +1,4 @@
-<x-layout title="usodake | 投稿詳細">
+<x-layout title="名言 by俺 | 投稿詳細">
     <h2>投稿詳細画面</h2>
     <p>ID {{ $post->id }} の投稿についての詳細です</p>
     <br>

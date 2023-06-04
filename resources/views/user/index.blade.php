@@ -1,4 +1,4 @@
-<x-layout title="usodake | トップページ">
+<x-layout title="名言 by俺 | ユーザーTOP">
     <h2>トップページ</h2>
     <p>{{ $user->name }} さん</p>
     <p><a href="{{ route('user.posts', ['id' => $user->id]) }}">投稿一覧</a></p>

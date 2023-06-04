@@ -1,4 +1,4 @@
-<x-layout title="usodake | 新着">
+<x-layout title="名言 by俺 | 新着">
     新着画面
     @guest
         <ul class="flex">

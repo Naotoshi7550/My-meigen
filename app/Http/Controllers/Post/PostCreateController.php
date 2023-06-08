@@ -20,7 +20,7 @@ class PostCreateController extends Controller
         $post->content = $request->postContent();
         $post->save();
 
-        // ホーム画面の新着ページにリダイレクト
-        return redirect()->route('post.new.index');
+        // 同じページにリダイレクトし、投稿完了メッセージを表示
+        return redirect()->route('post.create.index')->with('feedback.success', "投稿が完了しました");
     }
 }

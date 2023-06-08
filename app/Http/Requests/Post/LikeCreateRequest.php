@@ -22,7 +22,7 @@ class LikeCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'add-likes' => 'integer|min:1|max:10',
+            'add-likes' => 'integer|min:1|max:5',
         ];
     }
 }

@@ -21,14 +21,50 @@ class PostService
         return count($likedUsers);
     }
 
-/**
+    /**
+     * あるユーザーが、任意のpostにいいねしているかどうかを調べる関数
+     * @param int $userId
+     * @param int $postId
+     * @return bool $result  いいねしていたらtrue、していなかったらfalseを返す
+     */
+    public function hasLikedByUser(int $postId, int $userId)
+    {
+        $result = false;
+
+        $postLike = PostLike::where(['post_id' => $postId, 'user_id' => $userId])->first();
+        if ($postLike !== null){
+            $result = true;
+        }
+
+        return $result;
+    }
+
+
+    /**
+     * あるユーザーが、任意のpostにいくついいねをしているかを調べる関数
+     * @param int $userId
+     * @param int $postId
+     * @return int  いいねをした数
+     */
+    public function getNumOfLikesByOneUser(int $postId, int $userId)
+    {
+        if ($this->hasLikedByUser($postId, $userId) === false){
+            return 0;
+        } else {
+            return PostLike::where(['post_id' => $postId, 'user_id' => $userId])->first()->num_of_likes;
+        }
+    }
+
+
+
+    /**
      * postIdとuserIdをもとに、PostLikeモデルのインスタンスを取得する関数
      * （「あるユーザーがあるpostにいいねした数」などの情報をもつインスタンスを取得する）
      * @param int $userId
      * @param int $postId
      * @return object|null PostLikeモデルのインスタンス|null
      */
-    public function getNumOfLikesByUser(int $postId, int $userId)
+    public function getPostLike(int $postId, int $userId)
     {
         return PostLike::where(['post_id' => $postId, 'user_id' => $userId])->first();
     }

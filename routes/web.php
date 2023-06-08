@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 // Post
 Route::get('/', \App\Http\Controllers\IndexController::class);
 Route::get('/post/new', \App\Http\Controllers\Post\New\IndexController::class)->name('post.new.index');
-Route::post('/post/new', \App\Http\Controllers\Post\PostCreateController::class)->middleware('auth')->name('post.new.create');
 Route::get('/post/feature', \App\Http\Controllers\Post\Feature\IndexController::class)->name('post.feature.index');
-Route::post('/post/feature', \App\Http\Controllers\Post\PostCreateController::class)->middleware('auth')->name('post.feature.create');
+Route::get('/post/create', \App\Http\Controllers\Post\PostCreateIndexController::class)->middleware('auth')->name('post.create.index');
+Route::post('/post/create', \App\Http\Controllers\Post\PostCreateController::class)->middleware('auth')->name('post.create');
 
 // Route::get('/register', \App\Http\Controllers\RegisterController::class);
 // Route::get('/login', \App\Http\Controllers\LoginController::class);

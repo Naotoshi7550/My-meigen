@@ -22,7 +22,7 @@ class LikeCreateController extends Controller
         $postId = $request->route('id');
 
         // userIdとpostIdから、対象のPostLikeモデルを取得
-        $postLike = $postService->getNumOfLikesByUser($postId, $userId);
+        $postLike = $postService->getPostLike($postId, $userId);
         
         // いいねをつける個数を取得
         $addLikes = $request->input('add-likes');
@@ -40,10 +40,10 @@ class LikeCreateController extends Controller
         elseif ($postLike !== null){
             $postLike->num_of_likes += $addLikes;
 
-            // 合計のいいね数が10を超える場合は、いいねを保存せず投稿詳細画面へ戻す
-            if ($postLike->num_of_likes > 10){
+            // 合計のいいね数が5を超える場合は、いいねを保存せず投稿詳細画面へ戻す
+            if ($postLike->num_of_likes > 5){
                 return redirect()->route('post.detail', ['id' => $postId])
-                    ->with('feedback.error', "※エラー: いいねは１投稿につき最大10件までです");
+                    ->with('feedback.error', "いいねは１投稿につき最大5件までです");
             }
             $postLike->save();
         }

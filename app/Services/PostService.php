@@ -88,6 +88,28 @@ class PostService
 
 
     /**
+     * ユーザーがこれまでに獲得したいいねの個数を取得する関数
+     * @param int $userId
+     * @return int $allLikes 　ユーザーがこれまでに獲得したいいねの個数
+     */
+    public function getAllLikes($userId)
+    {
+        $allLikes = 0;
+
+        $posts = Post::where('user_id', $userId)->get();
+        if ($posts === null){
+            return $allLikes;
+        }
+        
+        foreach ($posts as $post){
+            $allLikes += $post->num_of_likes;
+        }
+
+        return $allLikes;
+    }
+
+
+    /**
      * postIdをもとに、そのpostに押されたいいねの数を算出する関数
      * @param int $postId 
      * @return int $numOfLikes いいね数

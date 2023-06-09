@@ -12,8 +12,8 @@ class LogoutController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $userName = $request->user()->name;
+        $user = $request->user();
 
-        return view('user.userLogout')->with('userName', $userName);
+        return view('user.userLogout')->with('user', $user);
     }
 }

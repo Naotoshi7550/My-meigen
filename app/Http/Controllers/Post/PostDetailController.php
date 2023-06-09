@@ -27,13 +27,6 @@ class PostDetailController extends Controller
         // このpostにいいねを押したユーザーの人数を取得する
         $numOfLikedUsers = $postService->getNumOfLikedUsers($post->id);
 
-        
-        // 最後に表示していたホーム画面のURL($pageUrl)をセッション変数に保存（←戻るボタンで使う）
-        if (null !== $request->input('page-url')){
-            $pageUrl = $request->input('page-url');
-            $request->session()->put('pageUrl', $pageUrl);
-        }
-
         // ユーザーがログインしていたら、以下のことも追加で実行
         if (isset($userId)){
             // ログインユーザーが対象postにいいねしているかどうかを調べる
@@ -42,7 +35,7 @@ class PostDetailController extends Controller
             $numOfLikesByLoginUser = $postService->getNumOfLikesByOneUser($postId, $userId);
         }
 
-
+        
         if (isset($userId)){
             return view('post.postDetail')->with('post', $post)
                 ->with('numOfLikedUsers', $numOfLikedUsers)

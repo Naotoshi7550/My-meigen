@@ -1,5 +1,12 @@
 <x-layout title="名言 by俺 | 新着">
 
+    <!-- 「ホームに戻る」ボタン用のURLをセッション変数に保存 -->
+    @php
+    $pageUrl = $posts->url($posts->currentPage());
+    session(['pageUrl' => $pageUrl]);
+    @endphp
+
+
     <!--  ヘッダー　-->
     <x-header ></x-header>
 
@@ -7,10 +14,7 @@
     @auth
     <x-headerUser>
         @if (isset($user))
-        <form action="{{ route('user.top', ['id' => $user->id]) }}" method="GET">
-            <input type="hidden" name="page-url" value="{{ $posts->url($posts->currentPage()) }}">
-            <button><span class="underline decoration-1 hover:text-gray-500">{{ $user->name }}</span></button>
-        </form>
+        <a href="{{ route('user.top', ['id' => $user->id]) }}" class="underline decoration-1 hover:text-gray-500">{{ $user->name }}</a>
         @endif
     </x-headerUser>
     @endauth
@@ -27,8 +31,8 @@
                 <p class="pl-1">ホーム</p>
             </div>
             <div class="flex justify-around">
-                <p class="w-full bg-blue-400"><a href="" class ="underline">新着</a></p>
-                <p class="w-full bg-blue-100"><a href="" class="text-gray-400">注目</a></p>
+                <p class="w-full bg-blue-400 underline">新着</p>
+                <p class="w-full bg-blue-100 underline"><a href="{{ route('post.feature.index') }}" class="text-gray-400">注目</a></p>
             </div>
         </div>
 
@@ -61,7 +65,6 @@
                 <p class="ml-2">{{ $post->num_of_likes }}</p>
             </div>
             <form class="absolute inset-0" action="{{ route('post.detail', ['id' => $post->id]) }}" method="GET">
-                <input type="hidden" name="page-url" value="{{ $posts->url($posts->currentPage()) }}">
                 <button type="submit" class="w-full h-full"></button>
             </form>
         </div>
@@ -76,7 +79,6 @@
     <!-- 新規投稿ボタン -->
     @auth
         <form action="{{ route('post.create.index') }}">
-            <input type="hidden" name="page-url" value="{{ $posts->url($posts->currentPage()) }}">
             <button id="create-post" type="submit" class="border-4 rounded-lg text-2xl text-white bg-blue-400 px-4 py-2 hover:bg-blue-500 fixed bottom-6 right-4">新規投稿</button>
         </form>
     @endauth

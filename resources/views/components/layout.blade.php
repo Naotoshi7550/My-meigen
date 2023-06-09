@@ -17,6 +17,5 @@
 </head>
 <body>
     {{ $slot }}
-    <p><a href="{{ session('pageUrl') }}">ホームに戻る</a></p>
 </body>
 </html>

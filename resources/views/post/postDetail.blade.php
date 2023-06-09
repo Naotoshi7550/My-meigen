@@ -20,7 +20,7 @@
             <p class="inline-block bg-gray-300 rounded-xl px-4">by <a href="{{ route('user.top', ['id' => $post->user->id]) }}" class="underline">{{ $post->user->name }}</a></p>
             <p class="text-gray-500">{{ $post->created_at }}</p>
         </div>
-        <div class="w-10/12 mx-auto mb-4">
+        <div class="w-11/12 mx-auto mb-4">
             <!-- postの内容 -->
             <p class="text-xl mb-6">{{ $post->content }}</p>
             <div class="flex justify-center align-center">

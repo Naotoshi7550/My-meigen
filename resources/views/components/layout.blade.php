@@ -16,7 +16,7 @@
     @endif
 </head>
 <body>
-    <div class="sm:w-3/5 sm:mx-auto">
+    <div class="lg:w-3/5 lg:mx-auto">
         {{ $slot }}
     </div>
 </body>

@@ -22,7 +22,7 @@
         </div>
         <div class="w-11/12 mx-auto mb-4">
             <!-- postの内容 -->
-            <p class="text-xl mb-6">{{ $post->content }}</p>
+            <p class="text-xl mb-6">{!! nl2br(e($post->content)) !!}</p>
             <div class="flex justify-center align-center">
                 @auth
                 @if ($hasLikedByLoginUser === true)

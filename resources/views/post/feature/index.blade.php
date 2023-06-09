@@ -39,7 +39,7 @@
         <!-- post本体 -->
         @foreach ($posts as $post)
         <div class="mb-8 border-b relative">
-            <p class="w-10/12 mx-auto mb-6">{{ $post->content }}</p>
+            <p class="w-10/12 mx-auto mb-6">{!! nl2br(e($post->content)) !!}</p>
             <div class="flex justify-center align-center mb-6">
                 @auth
                     @php

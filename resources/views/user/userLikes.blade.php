@@ -28,7 +28,7 @@
 
     @foreach ($postLikes as $postLike)
         <div class="mb-8 border-b relative">
-            <p class="w-10/12 mx-auto mb-6">{{ $postLike->post->content }}</p>
+            <p class="w-10/12 mx-auto mb-6">{!! nl2br(e($postLike->post->content)) !!}</p>
             <div class="flex justify-center align-center mb-6">
                 @auth
                     @php

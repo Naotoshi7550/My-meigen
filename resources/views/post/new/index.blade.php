@@ -32,7 +32,7 @@
             </div>
             <div class="flex justify-around">
                 <p class="w-full bg-blue-400 underline">新着</p>
-                <p class="w-full bg-blue-100 underline"><a href="{{ route('post.feature.index') }}" class="text-gray-400">注目</a></p>
+                <p class="w-full bg-blue-100 underline"><a href="{{ route('post.feature.index') }}" class="text-gray-400 hover:text-gray-500">注目</a></p>
             </div>
         </div>
 

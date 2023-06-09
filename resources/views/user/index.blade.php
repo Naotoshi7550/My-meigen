@@ -23,10 +23,10 @@
             <p class="text-gray-500">投稿数 : <span class="text-black">{{ count($user->posts) }}</span>件</p>
             <p class="text-gray-500">獲得したいいね : <span class="text-black">{{ $allLikes }}</span>個</p>
         </div>
-        <p class="underline decoration-blue-500 mb-4"><a href="{{ route('user.posts', ['id' => $user->id]) }}">投稿一覧</a></p>
-        <p class="underline decoration-yellow-300 mb-4"><a href="{{ route('user.likes', ['id' => $user->id]) }}">いいねした投稿</a></p>
+        <p class="underline decoration-blue-500 mb-4 hover:text-gray-500"><a href="{{ route('user.posts', ['id' => $user->id]) }}">投稿一覧</a></p>
+        <p class="underline decoration-yellow-300 mb-4 hover:text-gray-500"><a href="{{ route('user.likes', ['id' => $user->id]) }}">いいねした投稿</a></p>
         @if (\Illuminate\Support\Facades\Auth::id() === $user->id)
-            <p class="underline decoration-1 mb-4"><a href="{{ route('user.logout', ['id' => $user->id]) }}">ログアウト</a></p>
+            <p class="underline decoration-1 mb-4 hover:text-gray-500"><a href="{{ route('user.logout', ['id' => $user->id]) }}">ログアウト</a></p>
         @endif
     </div>
 

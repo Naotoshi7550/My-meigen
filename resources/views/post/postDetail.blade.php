@@ -17,7 +17,7 @@
     <div class="w-11/12 mx-auto border-2 rounded-lg mb-2">
         <h2 class="bg-blue-400 text-center leading-10 mb-4 rounded-t-lg mb-4">投稿詳細</h2>
         <div class="flex justify-between text-sm px-4 mb-8">
-            <p class="inline-block bg-gray-300 rounded-xl px-4">by <a href="{{ route('user.top', ['id' => $post->user->id]) }}" class="underline">{{ $post->user->name }}</a></p>
+            <p class="inline-block bg-gray-300 rounded-xl px-4">by <a href="{{ route('user.top', ['id' => $post->user->id]) }}" class="underline hover:text-gray-500">{{ $post->user->name }}</a></p>
             <p class="text-gray-500">{{ $post->created_at }}</p>
         </div>
         <div class="w-11/12 mx-auto mb-4">

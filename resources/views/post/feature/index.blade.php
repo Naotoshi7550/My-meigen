@@ -31,7 +31,7 @@
                 <p class="pl-1">ホーム</p>
             </div>
             <div class="flex justify-around">
-                <p class="w-full bg-blue-100 underline"><a href="{{ route('post.new.index') }}" class="text-gray-400">新着</a></p>
+                <p class="w-full bg-blue-100 underline"><a href="{{ route('post.new.index') }}" class="text-gray-400 hover:text-gray-500">新着</a></p>
                 <p class="w-full bg-blue-400 underline">注目</p>
             </div>
         </div>

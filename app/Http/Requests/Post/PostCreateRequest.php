@@ -23,14 +23,23 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'post' => 'required|max:50',
+            'font' => 'required',
         ];
     }
 
     /**
      * 新規投稿フォームに入力された内容を取得する
      */
-    public function postContent(): string
+    public function content(): string
     {
         return $this->input('post');
+    }
+
+    /**
+     * 新規投稿フォームで選択されたフォントを取得する
+     */
+    public function font():string
+    {
+        return $this->input('font');
     }
 }

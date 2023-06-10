@@ -17,7 +17,8 @@ class PostCreateController extends Controller
         // ユーザーidと新規投稿フォームの入力内容を取得して保存
         $post = new Post;
         $post->user_id = $request->user()->id;
-        $post->content = $request->postContent();
+        $post->content = $request->content();
+        $post->font = $request->font();
         $post->save();
 
         // 同じページにリダイレクトし、投稿完了メッセージを表示

@@ -14,7 +14,7 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Klee+One:wght@600&family=Reggae+One&family=RocknRoll+One&family=Zen+Antique&family=Zen+Kaku+Gothic+New:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Klee+One:wght@600&family=Potta+One&family=Rampart+One&family=Reggae+One&family=RocknRoll+One&family=Stick&family=Zen+Antique&family=Zen+Kaku+Gothic+New:wght@700&display=swap" rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="/css/style.css">

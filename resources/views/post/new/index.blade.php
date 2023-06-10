@@ -39,7 +39,7 @@
         <!-- post本体 -->
         @foreach ($posts as $post)
         <div class="mb-8 border-b relative">
-            <p class="w-10/12 mx-auto mb-6">{!! nl2br(e($post->content)) !!}</p>
+            <p class="w-10/12 mx-auto mb-6 {{ $post->font }}">{!! nl2br(e($post->content)) !!}</p>
             <div class="flex justify-center align-center mb-6">
                 @auth
                     @php
@@ -79,12 +79,12 @@
     <!-- 新規投稿ボタン -->
     @auth
         <form action="{{ route('post.create.index') }}">
-            <button id="create-post" type="submit" class="border-4 rounded-lg text-2xl text-white bg-blue-400 px-4 py-2 hover:bg-blue-500 fixed bottom-6 right-4">新規投稿</button>
+            <button id="create-post" type="submit" class="border-4 rounded-lg text-2xl text-white bg-blue-400 px-4 py-2 hover:bg-blue-500 fixed bottom-6 right-4 lg:bottom-12 lg:right-28">新規投稿</button>
         </form>
     @endauth
     @guest
         <form action="{{ route('login') }}">
-            <button id="create-post" type="submit" class="border-4 rounded-lg text-xl text-white bg-blue-400 px-4 py-2 hover:bg-blue-500 fixed bottom-6 right-4">新規投稿<br>（要ログイン）</button>
+            <button id="create-post" type="submit" class="border-4 rounded-lg text-xl text-white bg-blue-400 px-4 py-2 hover:bg-blue-500 fixed bottom-6 right-4 lg:bottom-12 lg:right-28">新規投稿<br>（要ログイン）</button>
         </form>
     @endguest
     <!-- /新規投稿ボタン -->

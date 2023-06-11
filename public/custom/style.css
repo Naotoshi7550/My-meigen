@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/* 
+Base
+フォント
+*/
+.font1 {
+    font-family: 'Zen Antique', serif;
+}
+.font2 {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+.font3 {
+    font-family: 'Klee One', cursive;
+
+}
+.font4 {
+    font-family: 'DotGothic16', sans-serif;
+
+}
+.font5 {
+    font-family: 'Hachi Maru Pop', cursive;
+}
+.font6 {
+    font-family: 'Reggae One', cursive;
+
+}
+.font7 {
+    font-family: 'RocknRoll One', sans-serif;
+
+}
+.font8 {
+    font-family: 'Potta One', cursive;
+}
+.font9 {
+    font-family: 'Stick', sans-serif;
+}
+.font10 {
+    font-family: 'Rampart One', cursive;
+}
+
+/* ラジオボタンの装飾 */
+input[type="radio"] {
+    border: 2px solid #ccc;
+    /* border-radius: 0%; */
+    width: .6rem;
+    height: .6rem;
+    /* background-color: #fff; */
+    margin-right: .6rem;
+}
+
+
+/* セレクトボックスの装飾 */
+/* select {
+    -moz-appearance: menulist-button;
+    -webkit-appearance: menulist-button;
+    appearance: menulist-button;
+    border: 1px solid #777;
+    border-radius: .1rem;
+} */
+
+/* テキストエリアの装飾 */
+/* textarea {
+    width: 90%;
+    padding: 8px 10px;
+    border: 2px solid #d2d2d2;
+    border-radius: 3px;
+    background: #f7f7f7;
+    color: #333;
+    font-size: 1em;
+    line-height: 1.5;
+} */

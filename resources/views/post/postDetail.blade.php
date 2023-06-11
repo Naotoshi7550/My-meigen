@@ -1,7 +1,7 @@
 <x-layout title="名言 by俺 | 投稿詳細">
 
     <x-slot name="script">
-        <script src="/js/postDetail.js" defer></script>
+        <script src="/custom/postDetail.js" defer></script>
     </x-slot>
 
     <!-- 戻るボタン -->

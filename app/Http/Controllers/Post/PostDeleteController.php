@@ -19,8 +19,7 @@ class PostDeleteController extends Controller
         $userId = $request->user()->id;
 
         // 削除しようとしているpostが、ログインユーザーが投稿したものであるかチェック
-        if (!$postService->checkOwnPost($postId, $userId))
-        {
+        if (!$postService->checkOwnPost($postId, $userId)){
             throw new AccessDeniedHttpException();
         }
         

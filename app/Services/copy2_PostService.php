@@ -15,11 +15,10 @@ class PostService
     public function getNumOfLikedUsers(int $postId)
     {
         $postLikes = PostLike::where('post_id', $postId)->get();
-        // $likedUsers = $postLikes->map(function (PostLike $postLike){
-        //     return $postLike->user_id;
-        // });
-        // return count($likedUsers);
-        return $postLikes->count();
+        $likedUsers = $postLikes->map(function (PostLike $postLike){
+            return $postLike->user_id;
+        });
+        return count($likedUsers);
     }
 
     /**
@@ -108,4 +107,29 @@ class PostService
 
         return $allLikes;
     }
+
+
+    /**
+     * postIdをもとに、そのpostに押されたいいねの数を算出する関数
+     * @param int $postId 
+     * @return int $numOfLikes いいね数
+     */
+    // public function getNumOfLikes($postId): int
+    // {
+    //     $numOfLikes = 0;
+        
+    //     $postLikes = PostLike::where('post_id', $postId)->get();
+    //     if ($postLikes === null){
+    //         return $numOfLikes;
+    //     }
+        
+    //     $collection = $postLikes->map(function (PostLike $postLike){
+    //         return $postLike->num_of_likes;
+    //     });
+    //     foreach ($collection as $item){
+    //         $numOfLikes += $item;
+    //     }
+        
+    //     return $numOfLikes;
+    // }
 }

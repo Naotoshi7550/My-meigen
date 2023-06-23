@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostLike;
 use App\Services\PostService;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class LikeCreateController extends Controller
 {
@@ -17,6 +18,11 @@ class LikeCreateController extends Controller
     public function __invoke(LikeCreateRequest $request, PostService $postService)
     {
 
+        // ログインしていなかったら、例外をスロー
+        if (null === $request->user()){
+            throw new AccessDeniedHttpException();
+        }
+        
         // userIdとpostIdを取得
         $userId = $request->user()->id;
         $postId = $request->route('id');

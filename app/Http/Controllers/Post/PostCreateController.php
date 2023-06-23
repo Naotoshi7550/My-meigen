@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostCreateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
 
 class PostCreateController extends Controller
 {
@@ -14,6 +16,11 @@ class PostCreateController extends Controller
      */
     public function __invoke(PostCreateRequest $request)
     {
+        // ログインしていなかったら、例外をスロー
+        if (null === $request->user()){
+            throw new AccessDeniedHttpException();
+        }
+
         // ユーザーidと新規投稿フォームの入力内容を取得して保存
         $post = new Post;
         $post->user_id = $request->user()->id;

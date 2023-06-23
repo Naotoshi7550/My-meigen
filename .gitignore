@@ -20,3 +20,6 @@ yarn-error.log
 
 # /public/css
 # /public/js
+Tests_Browser_Post_LikeCreateTest_testLikeCreate_first-0.log
+Tests_Browser_Post_LikeCreateTest_testLikeCreate_notfirst-0.log
+Tests_Browser_Post_LikeCreateTest_testLikeCreate_notfirst_fail-0.log

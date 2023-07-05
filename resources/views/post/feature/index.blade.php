@@ -1,4 +1,4 @@
-<x-layout title="名言 by俺 | 新着">
+<x-layout title="My 名言 | 新着">
 
     <!-- 「ホームに戻る」ボタン用のURLをセッション変数に保存 -->
     @php

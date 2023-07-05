@@ -1,5 +1,5 @@
 @props([
-    'title' => "名言 by俺 | ??",
+    'title' => "パワーワーズ | ??",
     'script' => '',
 ])
 <!DOCTYPE html>

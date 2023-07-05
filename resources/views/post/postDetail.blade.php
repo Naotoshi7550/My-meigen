@@ -1,4 +1,4 @@
-<x-layout title="名言 by俺 | 投稿詳細">
+<x-layout title="My 名言 | 投稿詳細">
 
     <x-slot name="script">
         <script src="/custom/postDetail.js" defer></script>

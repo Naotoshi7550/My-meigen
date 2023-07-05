@@ -1,4 +1,4 @@
-<x-layout title="名言 by俺 | 「いいね」した投稿一覧">
+<x-layout title="My 名言 | 「いいね」した投稿一覧">
 
     <!-- 戻るボタン -->
     <div class="flex items-center text-gray-600 hover:text-gray-400 my-6 ml-2">
